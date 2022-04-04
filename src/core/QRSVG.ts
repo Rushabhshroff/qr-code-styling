@@ -71,7 +71,7 @@ export default class QRSVG {
   async drawQR(qr: QRCode): Promise<void> {
     const count = qr.getModuleCount();
     const minSize = Math.min(this._options.width, this._options.height) - this._options.margin * 2;
-    const dotSize = Math.floor(minSize / count);
+    const dotSize = minSize / count;
     let drawImageSize = {
       hideXDots: 0,
       hideYDots: 0,
@@ -165,9 +165,9 @@ export default class QRSVG {
     }
 
     const minSize = Math.min(options.width, options.height) - options.margin * 2;
-    const dotSize = Math.floor(minSize / count);
-    const xBeginning = Math.floor((options.width - count * dotSize) / 2);
-    const yBeginning = Math.floor((options.height - count * dotSize) / 2);
+    const dotSize = minSize / count;
+    const xBeginning = (options.width - count * dotSize) / 2;
+    const yBeginning = (options.height - count * dotSize) / 2;
     const dot = new QRDot({ svg: this._element, type: options.dotsOptions.type });
 
     this._dotsClipPath = document.createElementNS("http://www.w3.org/2000/svg", "clipPath");
@@ -228,11 +228,11 @@ export default class QRSVG {
 
     const count = this._qr.getModuleCount();
     const minSize = Math.min(options.width, options.height) - options.margin * 2;
-    const dotSize = Math.floor(minSize / count);
+    const dotSize = minSize / count;
     const cornersSquareSize = dotSize * 7;
     const cornersDotSize = dotSize * 3;
-    const xBeginning = Math.floor((options.width - count * dotSize) / 2);
-    const yBeginning = Math.floor((options.height - count * dotSize) / 2);
+    const xBeginning = (options.width - count * dotSize) / 2;
+    const yBeginning = (options.height - count * dotSize) / 2;
 
     [
       [0, 0, 0],
@@ -377,8 +377,8 @@ export default class QRSVG {
     dotSize: number;
   }): void {
     const options = this._options;
-    const xBeginning = Math.floor((options.width - count * dotSize) / 2);
-    const yBeginning = Math.floor((options.height - count * dotSize) / 2);
+    const xBeginning = (options.width - count * dotSize) / 2;
+    const yBeginning = (options.height - count * dotSize) / 2;
     const dx = xBeginning + options.imageOptions.margin + (count * dotSize - width) / 2;
     const dy = yBeginning + options.imageOptions.margin + (count * dotSize - height) / 2;
     const dw = width - options.imageOptions.margin * 2;
