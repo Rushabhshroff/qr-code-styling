@@ -8,7 +8,7 @@ export type CornerDotType = "dot" | "square";
 export type CornerSquareType = "dot" | "square" | "extra-rounded";
 export type Extension = "svg" | "png" | "jpeg" | "webp";
 export type GradientType = "radial" | "linear";
-export type DrawType = "canvas" | "svg";
+//export type DrawType = "canvas" | "svg";
 
 export type Gradient = {
   type: GradientType;
@@ -35,9 +35,9 @@ export interface CornerSquareTypes {
   [key: string]: CornerSquareType;
 }
 
-export interface DrawTypes {
-  [key: string]: DrawType;
-}
+// export interface DrawTypes {
+//   [key: string]: DrawType;
+// }
 
 export type TypeNumber =
   | 0
@@ -99,7 +99,7 @@ export interface QRCode {
 }
 
 export type Options = {
-  type?: DrawType;
+  // type?: DrawType;
   width?: number;
   height?: number;
   margin?: number;
